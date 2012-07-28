@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+class Chirp(models.Model):
+	name = models.CharField(default="Doug Graves!", max_length=30)
+	time = models.DateTimeField()
+	chirp = models.CharField(default="", max_length=140)

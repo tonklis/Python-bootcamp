@@ -85,7 +85,9 @@ SECRET_KEY = 'so32j2i((!9r=6)#)c!o7*h#*o99fy2#z!t66j+8cn@*$7sj80'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
+		'django_haml.filesystem.Loader',
+		'django_haml.app_directories.Loader',
+		'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
@@ -109,6 +111,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+		"/Users/gina/git/PyOhio/chirp/config/templates/"
 )
 
 INSTALLED_APPS = (
@@ -119,9 +122,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 		'chirp',
 )
 
