@@ -1,9 +1,8 @@
-{% extends "base.haml" %}
+- extends "base.haml"
 
-{% block content %}
-	{% for chirp in chirps %}
-	%div
-		%h3 {{chirp.name}}
-		%p {{chirp.chirp}}
-	{% endfor %}
-{% endblock %}
+- block content
+  - for chirp in chirps
+    .chirp
+		  %h3 {{chirp.name}}
+      %p {{chirp.chirp}}
+  %a{href:"/new"} new

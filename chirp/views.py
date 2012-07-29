@@ -1,8 +1,10 @@
 # Create your views here.
 
 from models import Chirp
-from django.shortcuts import render_to_response
+from forms import ChirpForm
 
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 #def index(request):
 #	return HttpResponseNotFound()
 
@@ -14,3 +16,11 @@ def chirp_list(request):
 	#Chirp.objects.filter(time__gte=datetime.now() - datetime(days=20))
 	#Chirp.objects.get(name="Doug"")
 	return render_to_response('chirp_base.haml', {'chirps' : chirps})
+
+def new(request):
+	form = ChirpForm()
+
+	if request.method == "POST":
+		form = ChirpForm(request.POST)
+		
+	return render_to_response('chirp_new.haml', {'form' : form, 'hola' : 'Variable hola!'}, context_instance=RequestContext(request))
